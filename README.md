@@ -1,4 +1,4 @@
-# <img src="assets/logo.png">
+# 🐉 Dragon News
 
 Dragoon News is a responsive front-end web application build with react that delivers real-time news articles on a variety of topics, complete with user authentication for personalized access. Built with modern web technologies, the app ensures a seamless user experience across devices and secure login functionality using firebase authentication.let's build the project together. 😎
 
@@ -10,14 +10,12 @@ The base URL for the API is:
 ### Endpoints
 
 1. **Get All News Categories**
-
    - **URL**: `/news/categories`
    - **Full URL**: https://openapi.programming-hero.com/api/news/categories
    - **Method**: `GET`
    - **Description**: Retrieves a list of all available news categories.
 
 2. **Get All News in a Category**
-
    - **URL Format**: `/news/category/{category_id}`
    - **Full URL Example**: https://openapi.programming-hero.com/api/news/category/01
    - **Method**: `GET`
