@@ -1,17 +1,7 @@
-import BreakingNews from "@/components/shared/BreakingNews";
-import Header from "@/components/shared/Header";
-import Navbar from "@/components/shared/Navbar";
-import React from "react";
+import MainShell from "@/components/shared/MainShell";
 
 const MainLayout = ({ children }) => {
-  return (
-    <>
-      <Header />
-      <BreakingNews />
-      <Navbar />
-      {children}
-    </>
-  );
+  return <MainShell>{children}</MainShell>;
 };
 
 export default MainLayout;

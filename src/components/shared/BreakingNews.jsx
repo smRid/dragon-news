@@ -4,27 +4,34 @@ import Marquee from "react-fast-marquee";
 const news = [
   {
     _id: "1",
-    title: "Breaking News: Major Event Unfolds in the City",
+    title: "Match Highlights: Germany vs Spain - as it happened",
   },
   {
     _id: "2",
-    title: "Breaking News: New Policy Announced by the Government",
+    title: "Match Highlights: Germany vs Spain as...",
   },
   {
     _id: "3",
-    title: "Breaking News: Sports Team Wins Championship",
+    title: "Match Highlights: Germany vs Spain - as it happened",
   },
 ];
 
 const BreakingNews = () => {
   return (
-    <div className="flex justify-between gap-4 items-center bg-gray-200 py-4 px-2 container mx-auto">
-      <button className="btn bg-red-500 text-white">Latest News</button>
-      <Marquee pauseOnHover={true} speed={100}>
+    <div className="container mx-auto max-w-[1140px] px-4">
+      <div className="flex items-center gap-4 bg-[#f3f3f3] p-3 md:p-4">
+      <button className="h-12 bg-[#d72050] px-7 text-[17px] font-semibold text-white">
+        Latest
+      </button>
+      <Marquee pauseOnHover={true} speed={70} className="text-[#403f3f]">
         {news.map((n) => (
-          <span key={n._id}>{n.title}</span>
+          <span key={n._id} className="mr-6 font-semibold">
+            {n.title}
+            <span className="ml-6">!</span>
+          </span>
         ))}
       </Marquee>
+      </div>
     </div>
   );
 };

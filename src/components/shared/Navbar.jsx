@@ -1,22 +1,18 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import userAvatar from "@/assets/user.png";
 import NavLink from "./NavLink";
 import { authClient } from "@/lib/auth-client";
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
 
-  console.log(user, isPending, "user");
-
   return (
-    <div className="container mx-auto flex justify-between gap-4 mt-6">
+    <nav className="container mx-auto mt-5 flex max-w-[1140px] items-center justify-between gap-4 px-4">
       <div></div>
-      <ul className="flex justify-between items-center text-gray-700 gap-3">
+      <ul className="flex items-center justify-between gap-4 text-[17px] font-medium text-[#706f6f]">
         <li>
           <NavLink href={"/"}>Home</NavLink>
         </li>
@@ -31,29 +27,26 @@ const Navbar = () => {
       </ul>
 
       {isPending ? (
-        <span className="loading loading-spinner loading-lg"></span>
+        <span className="loading loading-spinner loading-md"></span>
       ) : user ? (
-        <div className="flex items-center gap-2">
-          <h2>Hello, {user.name}</h2>
-          <Image
-            src={user.image || userAvatar}
-            alt="User avatar"
-            width={60}
-            height={60}
-          />
+        <div className="flex items-center gap-3">
+          <FaUserCircle className="text-[42px] text-black" />
           <button
-            className="btn bg-purple-500 text-white"
+            className="h-11 bg-[#403f3f] px-9 text-[17px] font-semibold text-white"
             onClick={async () => await authClient.signOut()}
           >
             Logout
           </button>
         </div>
       ) : (
-        <button className="btn bg-purple-500 text-white">
-          <Link href={"/login"}>Login</Link>
-        </button>
+        <div className="flex items-center gap-3">
+          <FaUserCircle className="text-[42px] text-black" />
+          <button className="h-11 bg-[#403f3f] px-10 text-[17px] font-semibold text-white">
+            <Link href={"/login"}>Login</Link>
+          </button>
+        </div>
       )}
-    </div>
+    </nav>
   );
 };
 
